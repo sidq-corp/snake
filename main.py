@@ -43,13 +43,18 @@ def matrix_hendler():
 		q = len(c.kords) - c.length
 		c.matrix[c.kords[q][0]][c.kords[q][1]] = c.sumbol_1
 		del c.kords[q]
-	os.system('cls')
+	matrix_print()
+
+
+def matrix_print():
 	c.matrix[c.old_h][c.old_w] = colored(c.sumbol_1, c.colors[randint(1,4)])
 	c.matrix[c.start_h][c.start_w] = colored(c.sumbol_1, 'red')
 	c.old_h = c.start_h
 	c.old_w = c.start_w
-	for i in range(c.heigth):
-		print(''.join(c.matrix[i]))
+	os.system('cls')
+	print('\n'.join(''.join(c.matrix[i]) for i in range(c.heigth)))
+	# for i in range(c.heigth):
+	# 	print(''.join(c.matrix[i]))
 
 matrix_hendler() 
 #===================MATRIX HANDLER======================
@@ -112,7 +117,7 @@ def main():
 			right()
 		elif c.vector == 4:
 			down()
-		time.sleep(0.1)
+		time.sleep(0.2)
 
 def init():
 	if not c.stop:

@@ -100,7 +100,7 @@ def main():
 			right()
 		elif c.vector == 4:
 			down()
-		time.sleep(0.3)
+		time.sleep(0.1)
 
 def init():
 	if not c.stop:

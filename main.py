@@ -12,6 +12,8 @@ from random import randint
 # keyboard.hook(print_pressed_keys)
 # keyboard.wait()
 
+#===================SNAKE HANDLER======================
+
 def cheker():
 	if [c.start_h, c.start_w] in c.kords or c.start_h < 0 or c.start_h > c.heigth - 1 or c.start_w > c.weigth - 1 or c.start_w < 0:
 		c.stop = False
@@ -26,6 +28,9 @@ def new_marker():
 	c.matrix[c.markerh][c.markerw] = colored(c.sumbol_1, 'yellow')
 
 new_marker()
+#===================SNAKE HANDLER======================
+
+#===================MATRIX HANDLER======================
 
 def matrix_hendler():
 	if c.start_w == c.markerw and c.start_h == c.markerh:
@@ -47,11 +52,14 @@ def matrix_hendler():
 		print(''.join(c.matrix[i]))
 
 matrix_hendler() 
+#===================MATRIX HANDLER======================
 
 
 # def pall():
 # 	c.matrix = [[c.sumbol_1 for i in range(c.weigth)] for i in range(c.heigth)]
 # 	matrix_hendler()
+
+#===================CHANGE SNAKE COORDINATE======================
 
 def up():
 	c.start_h-=1
@@ -76,11 +84,15 @@ def left():
 	if c.start_w < 0:
 		c.start_w = 0
 	matrix_hendler()
+#===================CHANGE SNAKE COORDINATE======================
+
 
 # def mode():
 # 	c.mode = 0 if c.mode else 1
 # 	c.matrix[c.start_h][c.start_w] = c.sumbol_1 if c.mode else c.sumbol_2
 
+
+#===================CHANGE VECTOR======================
 def ups():
 	c.vector = 2
 def lefts():
@@ -107,7 +119,10 @@ def init():
 		c.stop = True
 		thr = threading.Thread(target=main)
 		thr.start()
+#===================CHANGE VECTOR======================
 
+
+#CLICK HENDLER
 keyboard.add_hotkey('c', init)
 # keyboard.add_hotkey('n', pall)
 keyboard.add_hotkey('up', ups)
